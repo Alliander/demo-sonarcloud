@@ -12,15 +12,15 @@ mooi weergegeven in de web console.
 
 SonarQube met eigen server
 --------------------------
-**Database installatie**  
+###**Database installatie**  
 Voor SonarQube heb je een database nodig, waar SonarQuba alle resultaten op kan slaan die de analyseres genereren.
 
-**Server and SonarQube installatie**
+###**Server and SonarQube installatie**
 - De volgende stap is het installeren van een web server. De webserver verbindt de database met SonarQube.
 - Hiervoor moet je de juiste database connectie string uitcommentariëren in de `sonar.properties` file in the `conf` folder aanpassen.
 - Als de webserver start krijg je de web console te zien.
 
-**Analysers**  
+###**Analysers**  
 - De analysers zijn de brug tussen de code die je wilt analyseren en de SonarQube database. Er zijn verschillende analysers beschikbaar.
 Deze scanner moet je downloaden en in je SonarQube plaatsen. 
 - Daarna moet deze configureren via de `sonar-runner.properties` file in the `/conf` folder.
@@ -29,7 +29,7 @@ Deze scanner moet je downloaden en in je SonarQube plaatsen.
 - /bin directory toevoegen aan jouw path variable.
 - `Runner` is de oude naam voor `Scanner`.
 
-**Analyseer het project**
+###**Analyseer het project**
 - maak een `sonar- project.properties` file aan en plaatste deze in je projectmap.
 - start de sonar-scanner
 - als het gelukt is zijn de resultaten opgeslagen in de database en kun je deze inzien via de web interface.
@@ -38,7 +38,7 @@ SonarCloud
 ----------
 Om jouw project te laten controlren via SonarCloud moet het volgende worden aangepast:
 
-**build.gradle**
+###**build.gradle**
 - voeg de volgende classpath dependency toe:
 ```groovy
 classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:{versienummer}"
@@ -71,7 +71,7 @@ classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:{versienummer}
     sonarToken = token
 ```
 
-**jenkins file**
+###**jenkins file**
 - voeg een stap toe aan de jenkins file:
 ```groovy
         stage("Sonar Analysis") {
@@ -88,5 +88,5 @@ classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:{versienummer}
 Let op! De eerste keer dat je een analyse draait moet dat op de master en kun je geen branch parameter opgeven. 
 Daarna kun je wel een specifieke branch opgeven voor de analyse.  
 
-**sonarqube plugin toevoegen aan jenkins**  
+###**sonarqube plugin toevoegen aan jenkins**  
 Deze plugin is nodig zodat Jenkins verbinding kan maken met de SonarQube server en de analyse kan triggeren.
