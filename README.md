@@ -36,7 +36,7 @@ Deze scanner moet je downloaden en in je SonarQube installatiemap plaatsen.
 
 SonarCloud
 ----------
-Om jouw project te laten controlren via SonarCloud moet het volgende worden aangepast:
+Om jouw project te laten controleren via SonarCloud moet het volgende worden aangepast:
 
 \# **GRADLE**
 - voeg de volgende classpath dependency toe aan de `build.gradle` file:
