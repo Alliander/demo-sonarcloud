@@ -13,7 +13,7 @@ De analysers analyseren de source code en werken de database bij. Vervolgens wor
 SonarQube met eigen server
 --------------------------
 \# **Database installatie**  
-Voor SonarQube heb je een database nodig, waar SonarQuba alle resultaten op kan slaan die de analysers genereren.
+Voor SonarQube heb je een database nodig, waarin SonarQube alle resultaten op kan slaan die de analysers genereren.
 
 \# **Server and SonarQube installatie**
 - De volgende stap is het installeren van een web server. De webserver verbindt de database met SonarQube.
@@ -30,7 +30,7 @@ Deze scanner moet je downloaden en in je SonarQube installatiemap plaatsen.
 ! `Runner` is de oude naam voor `Scanner`.
 
 \# **Analyseer het project**
-- Maak een `sonar- project.properties` file aan en plaatst deze in jouw projectmap.
+- Maak een `sonar-project.properties` file aan en plaatst deze in jouw projectmap.
 - Start de sonar-scanner
 - Als het gelukt is zijn de resultaten opgeslagen in de database en kun je deze inzien via de web interface.
 
@@ -38,8 +38,8 @@ SonarCloud
 ----------
 Om jouw project te laten controlren via SonarCloud moet het volgende worden aangepast:
 
-\# **build.gradle**
-- voeg de volgende classpath dependency toe:
+\# **GRADLE**
+- voeg de volgende classpath dependency toe aan de `build.gradle` file:
 ```groovy
 classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:{versienummer}"
 ```
@@ -71,7 +71,7 @@ classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:{versienummer}
     sonarToken = token
 ```
 
-\# **jenkins file**
+\# **JENKINS**
 - voeg een stap toe aan de jenkins file:
 ```groovy
         stage("Sonar Analysis") {
@@ -88,5 +88,5 @@ classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:{versienummer}
 Let op! De eerste keer dat je een analyse draait moet dat een reguliere analyse op de master zijn en kun je geen branch parameter opgeven. 
 Daarna kun je wel een specifieke branch opgeven voor de analyse.  
 
-\# **sonarqube plugin toevoegen aan jenkins**  
+- voeg de sonarqube plugin toe aan jenkins:  
 Deze plugin is nodig zodat Jenkins verbinding kan maken met de SonarQube server en de analyse kan triggeren.
