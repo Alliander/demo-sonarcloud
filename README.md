@@ -41,7 +41,7 @@ Om jouw project te laten controleren via SonarCloud moet het volgende worden aan
 \# **GRADLE**
 - voeg de volgende classpath dependency toe aan de `build.gradle` file:
 ```groovy
-classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:{versienummer}"
+    classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:{versienummer}"
 ```
 - voeg de sonarqube plugin toe:
 ```groovy
@@ -74,15 +74,15 @@ classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:{versienummer}
 \# **JENKINS**
 - voeg een stap toe aan de jenkins file:
 ```groovy
-        stage("Sonar Analysis") {
-          steps {
-              timestamps {
-                  script {
-                      sh "./gradlew sonarqube --info --stacktrace -Dsonar.branch.name=$BRANCH_NAME"
-                  }
+    stage("Sonar Analysis") {
+      steps {
+          timestamps {
+              script {
+                  sh "./gradlew sonarqube --info --stacktrace -Dsonar.branch.name=$BRANCH_NAME"
               }
           }
-        }
+      }
+    }
 ```
 
 Let op! De eerste keer dat je een analyse draait moet dat een reguliere analyse op de master zijn en kun je geen branch parameter opgeven. 
